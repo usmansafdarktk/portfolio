@@ -6,7 +6,7 @@ import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import { expressiveCodeOptions } from "./src/site.config";
 import { siteConfig } from "./src/site.config";
 
@@ -23,6 +23,7 @@ import rehypeExternalLinks from "rehype-external-links";
 export default defineConfig({
 	image: {
 		domains: ["webmention.io"],
+		service: passthroughImageService()
 	},
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
