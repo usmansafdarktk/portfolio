@@ -96,7 +96,7 @@ export default defineConfig({
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
 	// site property populated with the own domain
-	base: '/usman-portfolio',
+	base: '/portfolio',
 	site: "https://usmansafdarktk.github.io",
 	vite: {
 		optimizeDeps: {
