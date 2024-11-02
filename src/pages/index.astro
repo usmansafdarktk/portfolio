@@ -4,6 +4,7 @@ import CVLink from "@/components/CVLink.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
+import ThreeDCard from "@/components/ThreeDCard.astro";
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
@@ -165,5 +166,54 @@ const cactusProjects: {
 				))
 			}
 		</dl>
+	</section>
+
+	<section class="mb-8 mt-16">
+		<h2 class="title mb-12 text-xl">Projects</h2>
+		<div class="flex gap-x-8">
+			{
+				cactusProjects
+					.slice(0, 2)
+					.map(({ description, imageSrc, imageAlt, title, link }) => (
+						<ThreeDCard
+							title={title}
+							description={description}
+							imageSrc={imageSrc}
+							imageAlt={imageAlt}
+							link={link}
+						/>
+					))
+			}
+		</div>
+		<div class="flex gap-x-8">
+			{
+				cactusProjects
+					.slice(2, 4)
+					.map(({ description, imageSrc, imageAlt, title, link }) => (
+						<ThreeDCard
+							title={title}
+							description={description}
+							imageSrc={imageSrc}
+							imageAlt={imageAlt}
+							link={link}
+						/>
+					))
+			}
+		</div>
+		<div class="flex gap-x-8">
+			{
+				cactusProjects
+					.slice(4, 6)
+					.map(({ description, imageSrc, imageAlt, title, link }) => (
+						<ThreeDCard
+							title={title}
+							description={description}
+							imageSrc={imageSrc}
+							imageAlt={imageAlt}
+							link={link}
+						/>
+					))
+			}
+		</div>
 	</section>
 </PageLayout>
