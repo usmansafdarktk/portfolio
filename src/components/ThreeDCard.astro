@@ -1,0 +1,78 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	imageSrc?: string;
+	imageAlt?: string;
+	link?: string;
+}
+
+// Destructure props to use them in the component
+const { title, description, imageSrc, imageAlt, link } = Astro.props;
+---
+
+<div class="card-container">
+	<div
+		class="card-body group/card relative mb-8 h-auto w-auto rounded-xl border border-[#CB2A42] bg-gray-50 p-6 dark:border-[#29BC89] dark:bg-[#161818] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] sm:w-[30rem] md:h-[600px] md:w-[400px]"
+	>
+		<div class="card-item text-xl font-bold text-neutral-600 dark:text-white" data-translate-z="50">
+			{title}
+		</div>
+
+		<p
+			class="card-item mt-2 max-w-sm text-sm text-neutral-500 dark:text-neutral-300"
+			data-translate-z="60"
+		>
+			{description}
+		</p>
+
+		<div
+			class="card-item mt-4 w-full"
+			data-translate-z="100"
+			data-rotate-x="20"
+			data-rotate-z="-10"
+		>
+			<img
+				src={imageSrc}
+				class="h-64 w-full rounded-xl object-cover group-hover/card:shadow-xl md:h-72"
+				alt={imageAlt}
+			/>
+		</div>
+
+		<div class="mt-8 flex items-center justify-between">
+			<button
+				class="card-item rounded-xl bg-[#CB2A42] px-4 py-2 text-xs font-bold text-white dark:bg-[#29BC89] dark:text-black"
+				data-translate-z="20"
+				data-translate-x="40"
+			>
+				<a href={link}>See more</a>
+			</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.card-container {
+		perspective: 1000px;
+	}
+
+	.card-body {
+		transform-style: preserve-3d;
+		transition: transform 0.2s ease-out;
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+
+	.card-item {
+		transform-style: preserve-3d;
+		transition: transform 0.2s ease-out;
+	}
+</style>
+
+<script>
+	import { Card3DController } from "./ui/3d-card";
+
+	// Initialize the card controller for each card container on the page
+	document.querySelectorAll(".card-container").forEach((container) => {
+		new Card3DController(container as HTMLElement);
+	});
+</script>
