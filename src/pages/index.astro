@@ -1,0 +1,169 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import CVLink from "@/components/CVLink.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import { getAllPosts, sortMDByDate } from "@/data/post";
+import PageLayout from "@/layouts/Base.astro";
+
+const MAX_POSTS = 10;
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+
+const cactusTech: { desc: string; href: string; title: string }[] = [
+	{
+		desc: "Deep learning framework for implementing ML models",
+		href: "https://tensorflow.org",
+		title: "TensorFlow",
+	},
+	{
+		desc: "Scientific computing and data manipulation in Python",
+		href: "https://numpy.org",
+		title: "NumPy",
+	},
+	{
+		desc: "Data analysis and manipulation library",
+		href: "https://pandas.pydata.org",
+		title: "Pandas",
+	},
+	{
+		desc: "Machine learning library for predictive data analysis",
+		href: "https://scikit-learn.org",
+		title: "Scikit-learn",
+	},
+	{
+		desc: "Containerization platform for application deployment",
+		href: "https://docker.com",
+		title: "Docker",
+	},
+	{
+		desc: "SQL toolkit and ORM for database management",
+		href: "https://prisma.io",
+		title: "Prisma",
+	},
+	{
+		desc: "Next-gen static typing for JavaScript",
+		href: "https://typescriptlang.org",
+		title: "TypeScript",
+	},
+	{
+		desc: "Computer vision and image processing library",
+		href: "https://opencv.org",
+		title: "OpenCV",
+	},
+	{
+		desc: "MLOps platform for machine learning lifecycle",
+		href: "https://mlflow.org",
+		title: "MLflow",
+	},
+	{
+		desc: "Open-source automation server for CI/CD",
+		href: "https://jenkins.io",
+		title: "Jenkins",
+	},
+	{
+		desc: "Building dynamic user interfaces and modern web applications",
+		href: "https://react.dev",
+		title: "React.js",
+	},
+	{
+		desc: "Server-side JavaScript runtime for scalable backend solutions",
+		href: "https://nodejs.org",
+		title: "Node.js",
+	},
+];
+
+const cactusProjects: {
+	description: string;
+	imageSrc: string;
+	imageAlt: string;
+	title: string;
+	link: string;
+}[] = [
+	{
+		description:
+			"Development of advanced machine learning and deep learning techniques for detecting cyber attacks on Internet of Medical Things (IoMT) devices in the healthcare sector.",
+		imageSrc: "/portfolio/images/project-1.png",
+		imageAlt: "project-thumbnail",
+		title: "Cyber Attacks Detection on IoMT Devices",
+		link: "https://github.com/usmansafdarktk/IoMT-Cyber-Attack-Detection",
+	},
+	{
+		description:
+			"Generation of more than 700,00 unique Urdu words images, and application of deep learning models for enhancing Optical Character Recognition (OCR) for Urdu language.",
+		imageSrc: "/portfolio/images/project-2.png",
+		imageAlt: "project-thumbnail",
+		title: "Enhancing OCR for Urdu",
+		link: "https://github.com/usmansafdarktk/Urdu-OCR",
+	},
+	{
+		description:
+			"Ranking countries based on their economic and environmental well-being using Gapminder dataset containing data about many indicators like life expectancy, GDP etc from 1952 to 2012.",
+		imageSrc: "/portfolio/images/project-3.png",
+		imageAlt: "project-thumbnail",
+		title: "Why Pakistan is the Way it is?",
+		link: "https://github.com/usmansafdarktk/Why-Pakistan-Is-The-Way-It-Is",
+	},
+	{
+		description:
+			"A Python-based social networking system that replicates the core functionalities of Facebook and covers fundamental features such as user profiles, friend requests, posts, comments, and messaging.",
+		imageSrc: "/portfolio/images/project-4.png",
+		imageAlt: "project-thumbnail",
+		title: "Facebook Clone",
+		link: "https://github.com/usmansafdarktk/Facebook-Clone",
+	},
+	{
+		description:
+			"Developing a scalable cloud-native platform using AWS/Azure for citizen-driven traffic violation reporting, incorporating MLOps pipeline for evidence validation and real-time processing.",
+		imageSrc: "/portfolio/images/project-5.png",
+		imageAlt: "project-thumbnail",
+		title: "Mass Reporting and Intelligent Traffic Violation Detection",
+		link: "",
+	},
+];
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<section>
+		<h1 class="title mb-6">Hey, I'm Usman!</h1>
+		<p class="mb-4">
+			I'm a computer science student and researcher, currently located at Namal University Mianwali,
+			who's passionate about building intelligent systems. Whether it's through coding, teaching, or
+			community building, I'm always excited to take on new challenges.
+		</p>
+		<SocialList />
+		<CVLink />
+	</section>
+	<section aria-label="Blog post list" class="mt-16">
+		<h2 class="title mb-4 text-xl">Posts</h2>
+		<ul class="space-y-4">
+			{
+				allPostsByDate.map((p) => (
+					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+						{/* @ts-ignore-next-line - issue with -> @astrojs/check@0.9.3 */}
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<section class="mt-16">
+		<h2 class="title mb-4 text-xl">Technologies</h2>
+		<dl class="space-y-4">
+			{
+				cactusTech.map(({ desc, href, title }) => (
+					<div class="flex flex-col gap-2 sm:flex-row">
+						<dt>
+							<span class="flex">
+								<a class="cactus-link" href={href} rel="noreferrer" target="_blank">
+									{title}
+								</a>
+								:
+							</span>
+						</dt>
+						<dd>{desc}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</section>
+</PageLayout>

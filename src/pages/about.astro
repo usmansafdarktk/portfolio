@@ -1,0 +1,81 @@
+---
+// import { Image } from "astro:assets";
+// import aboutImg from "@/assets/about-astro.png";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description:
+		"About Muhammad Usman Safder - Computer Science student, ML researcher, and full-stack developer",
+	title: "About",
+};
+
+const skills = [
+	"Machine Learning & Deep Learning",
+	"Full-Stack Web Development",
+	"Computer Vision",
+	"Natural Language Processing",
+	"Cloud Computing (AWS/Azure)",
+	"MLOps & DevOps",
+	"Data Analysis & Visualization",
+];
+
+const interests = [
+	"Contributing to open-source projects",
+	"Teaching computer science to underprivileged students",
+	"Hosting tech conversations on my podcast",
+	"Building solutions for social impact",
+	"Research in AI and ML",
+];
+---
+
+<PageLayout meta={meta}>
+	<div class="space-y-6">
+		<h1 class="title">About Me</h1>
+		<p class="text-lg">
+			Hi! I'm Muhammad Usman Safder, a Computer Science student at Namal University with a passion
+			for machine learning, software development, and technology education. Currently working as a
+			Research Assistant at the Generative Intelligent Systems (GeniSys) Lab, I focus on developing
+			AI solutions that solve real-world problems.
+		</p>
+
+		<p>
+			As President of the Namal Computing Society and a committed educator in the Education Wing of
+			Namal Social Impact Society, I believe in using technology to create meaningful social impact.
+			When I'm not coding or researching, you can find me hosting meaningful conversations on my
+			podcast "Genz Gupshup" or teaching computer science to underprivileged students.
+		</p>
+
+		<div class="mt-8">
+			<h2 class="mb-4 text-xl font-semibold">Technical Expertise</h2>
+			<ul class="grid list-inside list-disc grid-cols-1 gap-2 md:grid-cols-2">
+				{skills.map((skill) => <li>{skill}</li>)}
+			</ul>
+		</div>
+
+		<div class="mt-8">
+			<h2 class="mb-4 text-xl font-semibold">Current Projects & Research</h2>
+			<ul class="list-inside list-disc">
+				<li>
+					Developing an Intelligent Traffic Violation Detection & Reporting System with Teradata
+				</li>
+				<li>Working on Handwritten Mathematical Expression Recognition using Deep Learning</li>
+				<li>Researching Enhanced Attention Mechanisms for Shadow Detection and Removal</li>
+				<li>Building OCR solutions for the Urdu language</li>
+			</ul>
+		</div>
+
+		<div class="mt-8">
+			<h2 class="mb-4 text-xl font-semibold">Beyond Tech</h2>
+			<ul class="list-inside list-disc">
+				{interests.map((interest) => <li>{interest}</li>)}
+			</ul>
+		</div>
+
+		<p class="mt-8">
+			Want to collaborate or just chat? Feel free to reach out through any of my social links or
+			drop me an <span class="cactus-link inline-block"
+				><a href="mailto:usmansafderktk@gmail.com" rel="noreferrer" target="_blank">email</a></span
+			>!
+		</p>
+	</div>
+</PageLayout>
