@@ -72,55 +72,6 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 		title: "Node.js",
 	},
 ];
-
-const cactusProjects: {
-	description: string;
-	imageSrc: string;
-	imageAlt: string;
-	title: string;
-	link: string;
-}[] = [
-	{
-		description:
-			"Development of advanced machine learning and deep learning techniques for detecting cyber attacks on Internet of Medical Things (IoMT) devices in the healthcare sector.",
-		imageSrc: "/portfolio/images/project-1.png",
-		imageAlt: "project-thumbnail",
-		title: "Cyber Attacks Detection on IoMT Devices",
-		link: "https://github.com/usmansafdarktk/IoMT-Cyber-Attack-Detection",
-	},
-	{
-		description:
-			"Generation of more than 700,00 unique Urdu words images, and application of deep learning models for enhancing Optical Character Recognition (OCR) for Urdu language.",
-		imageSrc: "/portfolio/images/project-2.png",
-		imageAlt: "project-thumbnail",
-		title: "Enhancing OCR for Urdu",
-		link: "https://github.com/usmansafdarktk/Urdu-OCR",
-	},
-	{
-		description:
-			"Ranking countries based on their economic and environmental well-being using Gapminder dataset containing data about many indicators like life expectancy, GDP etc from 1952 to 2012.",
-		imageSrc: "/portfolio/images/project-3.png",
-		imageAlt: "project-thumbnail",
-		title: "Why Pakistan is the Way it is?",
-		link: "https://github.com/usmansafdarktk/Why-Pakistan-Is-The-Way-It-Is",
-	},
-	{
-		description:
-			"A Python-based social networking system that replicates the core functionalities of Facebook and covers fundamental features such as user profiles, friend requests, posts, comments, and messaging.",
-		imageSrc: "/portfolio/images/project-4.png",
-		imageAlt: "project-thumbnail",
-		title: "Facebook Clone",
-		link: "https://github.com/usmansafdarktk/Facebook-Clone",
-	},
-	{
-		description:
-			"Developing a scalable cloud-native platform using AWS/Azure for citizen-driven traffic violation reporting, incorporating MLOps pipeline for evidence validation and real-time processing.",
-		imageSrc: "/portfolio/images/project-5.png",
-		imageAlt: "project-thumbnail",
-		title: "Mass Reporting and Intelligent Traffic Violation Detection",
-		link: "",
-	},
-];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -158,7 +109,6 @@ const cactusProjects: {
 								<a class="cactus-link" href={href} rel="noreferrer" target="_blank">
 									{title}
 								</a>
-								:
 							</span>
 						</dt>
 						<dd>{desc}</dd>
