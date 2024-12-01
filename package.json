@@ -27,7 +27,7 @@
 		"astro-webmanifest": "^1.0.0",
 		"clsx": "^2.1.1",
 		"cssnano": "^7.0.6",
-		"framer-motion": "^11.11.10",
+		"framer-motion": "^11.12.0",
 		"hastscript": "^9.0.0",
 		"mdast-util-directive": "^3.0.0",
 		"mdast-util-to-markdown": "^2.1.0",
