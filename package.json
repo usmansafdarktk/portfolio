@@ -37,7 +37,7 @@
 		"satori": "0.11.2",
 		"satori-html": "^0.3.2",
 		"sharp": "^0.33.5",
-		"tailwind-merge": "^2.5.4",
+		"tailwind-merge": "^2.5.5",
 		"unified": "^11.0.5",
 		"unist-util-visit": "^5.0.0"
 	},
