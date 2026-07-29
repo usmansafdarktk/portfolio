@@ -6,71 +6,125 @@ import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import ThreeDCard from "@/components/ThreeDCard.astro";
 
-const MAX_POSTS = 10;
+const MAX_POSTS = 5;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-const cactusTech: { desc: string; href: string; title: string }[] = [
+const techCategories = [
 	{
-		desc: "Deep learning framework for implementing ML models",
-		href: "https://tensorflow.org",
-		title: "TensorFlow",
+		category: "GenAI & LLM Orchestration",
+		skills: "PyTorch, TensorFlow, LangChain, LangGraph, CrewAI, LlamaIndex, Langfuse, Langsmith, Scikit-Learn"
 	},
 	{
-		desc: "Scientific computing and data manipulation in Python",
-		href: "https://numpy.org",
-		title: "NumPy",
+		category: "Full-Stack Development",
+		skills: "React, Next.js, Tailwind CSS, TypeScript, JavaScript, Node.js, FastAPI, PostgreSQL, MongoDB, Prisma, MySQL, Firebase"
 	},
 	{
-		desc: "Data analysis and manipulation library",
-		href: "https://pandas.pydata.org",
-		title: "Pandas",
+		category: "DevOps & Cloud",
+		skills: "Docker, Kubernetes (EKS / OKE), Terraform, Ansible, AWS, OCI, GCP, Azure, CI/CD Pipelines, Prometheus"
+	}
+];
+
+const experiences = [
+	{
+		role: "Senior AI/ML Specialist",
+		company: "Diyar United Company (via Upwork)",
+		period: "Jan 2025 – Present",
+		bullets: [
+			"Built and deployed a multi-agent AI platform with seven specialized agents automating enterprise procurement workflows, HR invoice validation, and legal advisory across tenant-isolated architecture.",
+			"Designed shared infrastructure including RAG pipelines, PostgreSQL schema isolation, LangGraph orchestration, and Langfuse observability."
+		]
 	},
 	{
-		desc: "Machine learning library for predictive data analysis",
-		href: "https://scikit-learn.org",
-		title: "Scikit-learn",
+		role: "AI Research Engineer",
+		company: "LibrAI",
+		period: "Dec 2025 – Present",
+		bullets: [
+			"Executed red teaming and adversarial testing on LLM systems to uncover safety risks, prompt injection vulnerabilities, and misalignment behaviors.",
+			"Built end-to-end RAG pipelines and automated evaluation harnesses to benchmark model outputs across safety, factual accuracy, and performance.",
+			"Evaluated and red-teamed K2 and K2-Think (LLM360) 70B open-source LLMs for model safety and reasoning quality."
+		]
 	},
 	{
-		desc: "Containerization platform for application deployment",
-		href: "https://docker.com",
-		title: "Docker",
+		role: "AI & FinTech Consultant",
+		company: "ADCB Bank (Abu Dhabi Commercial Bank)",
+		period: "2025 – Present",
+		bullets: [
+			"Consulted on enterprise AI integration, cross-jurisdiction financial disclosure reporting, and financial intelligence workflows.",
+			"Designed automated document auditing and compliance verification pipelines utilizing agentic RAG frameworks."
+		]
 	},
 	{
-		desc: "SQL toolkit and ORM for database management",
-		href: "https://prisma.io",
-		title: "Prisma",
+		role: "Research Engineer",
+		company: "MBZUAI NLP Group, UAE (Supervised by Dr. Zhuohan Xie & Dr. Preslav Nakov)",
+		period: "Sep 2025 – Present",
+		bullets: [
+			"Collaborated on multiple research projects under MBZUAI's NLP group, co-authoring 5 publications across LLM reasoning, evaluation, and financial AI.",
+			"Contributed to benchmarks including FinChain, Herculean (NeurIPS 2026), and EngTrace (ACL ARR 2026)."
+		]
 	},
 	{
-		desc: "Next-gen static typing for JavaScript",
-		href: "https://typescriptlang.org",
-		title: "TypeScript",
+		role: "Software Systems and DevOps Engineer",
+		company: "Xgrid.co",
+		period: "May 2025 – Dec 2025",
+		bullets: [
+			"Built and deployed GenAI and full-stack applications on AWS EKS and Oracle Kubernetes Engine (OKE), including blog assistant and XFieldOps platform.",
+			"Led XMOPS cloud automation team with reusable Terraform modules, reducing AWS cloud spend by 20%."
+		]
 	},
 	{
-		desc: "Computer vision and image processing library",
-		href: "https://opencv.org",
-		title: "OpenCV",
+		role: "Founder & CEO",
+		company: "!Nash",
+		period: "Jan 2025 – Aug 2025",
+		bullets: [
+			"Founded SaaS platform connecting students with industry professionals through AI-powered 1-on-1 mentorship and project-centered learning."
+		]
 	},
 	{
-		desc: "MLOps platform for machine learning lifecycle",
-		href: "https://mlflow.org",
-		title: "MLflow",
+		role: "Research Engineer",
+		company: "Generative Intelligent Systems (GeniSys) Lab",
+		period: "Aug 2024 – May 2025",
+		bullets: [
+			"Led Deep Learning and Computer Vision research projects, publishing 5 papers in top-tier journals including Nature Scientific Reports and IEEE Access."
+		]
 	},
 	{
-		desc: "Open-source automation server for CI/CD",
-		href: "https://jenkins.io",
-		title: "Jenkins",
+		role: "AI Automation Engineer",
+		company: "Autoscale AI",
+		period: "Jan 2022 – Oct 2023",
+		bullets: [
+			"Automated insurance verification and route optimization for healthcare logistics, recovering $40K/month in claims with a 35% fleet efficiency gain.",
+			"Built a 24/7 lead scheduling telephony AI agent, boosting call conversion from 15% to 78%."
+		]
+	}
+];
+
+const publications = [
+	{
+		title: "[1] Herculean: An Agentic Benchmark for Financial Intelligence",
+		status: "NeurIPS 2026 Evaluations and Datasets Track — Under Review",
+		link: "https://arxiv.org/abs/2605.14355"
 	},
 	{
-		desc: "Building dynamic user interfaces and modern web applications",
-		href: "https://react.dev",
-		title: "React.js",
+		title: "[2] EngTrace: A Symbolic Benchmark for Verifiable Process Supervision of Engineering Reasoning",
+		status: "ACL ARR 2026 — Under Review",
+		link: "https://arxiv.org/abs/2511.01650"
 	},
 	{
-		desc: "Server-side JavaScript runtime for scalable backend solutions",
-		href: "https://nodejs.org",
-		title: "Node.js",
+		title: "[3] FinReporting: An Agentic Workflow for Reporting of Cross-Jurisdiction Financial Disclosure",
+		status: "ACL 2026 System Demonstration Track — Accepted",
+		link: "https://arxiv.org/abs/2604.05966"
 	},
+	{
+		title: "[4] Optimizing Imbalanced Learning with Genetic Algorithm",
+		status: "Scientific Reports (Nature Portfolio) — Published",
+		link: "https://www.nature.com/articles/s41598-025-09424-x"
+	},
+	{
+		title: "[5] Scene Flow based Deep Network for Hand Reconstruction using Depth Images",
+		status: "Scientific Reports (Nature Portfolio) — Published",
+		link: "https://www.nature.com/articles/s41598-025-16821-9"
+	}
 ];
 
 const cactusProjects: {
@@ -82,137 +136,142 @@ const cactusProjects: {
 }[] = [
 	{
 		description:
-			"Development of advanced machine learning and deep learning techniques for detecting cyber attacks on Internet of Medical Things (IoMT) devices in the healthcare sector.",
+			"Multi-agent AI platform with seven specialized agents for bidder qualification, certificate evaluation, claims analysis, and award validation on tenant-isolated PostgreSQL.",
 		imageSrc: "/portfolio/images/project-1.png",
-		imageAlt: "project-thumbnail",
-		title: "Cyber Attacks Detection on IoMT Devices",
-		link: "https://github.com/usmansafdarktk/IoMT-Cyber-Attack-Detection",
+		imageAlt: "Procurement Multi-Agent Platform",
+		title: "Procurement Multi-Agent AI Platform",
+		link: "https://github.com/usmansafdarktk",
 	},
 	{
 		description:
-			"Generation of more than 700,00 unique Urdu words images, and application of deep learning models for enhancing Optical Character Recognition (OCR) for Urdu language.",
+			"AI agent automating contractor HR invoice reconciliation against employee rosters across 12 document types with structured audit trails.",
 		imageSrc: "/portfolio/images/project-2.png",
-		imageAlt: "project-thumbnail",
-		title: "Enhancing OCR for Urdu",
-		link: "https://github.com/usmansafdarktk/Urdu-OCR",
+		imageAlt: "HR Invoice Agent",
+		title: "HR Invoice Reconciliation Agent",
+		link: "https://github.com/usmansafdarktk",
 	},
 	{
 		description:
-			"Ranking countries based on their economic and environmental well-being using Gapminder dataset containing data about many indicators like life expectancy, GDP etc from 1952 to 2012.",
+			"LangChain/LangGraph writing assistant deployed on Oracle Kubernetes Engine (OKE) with API Gateway as flagship Oracle Partnership showcase.",
 		imageSrc: "/portfolio/images/project-3.png",
-		imageAlt: "project-thumbnail",
-		title: "Why Pakistan is the Way it is?",
-		link: "https://github.com/usmansafdarktk/Why-Pakistan-Is-The-Way-It-Is",
+		imageAlt: "OCI GenAI Assistant",
+		title: "GenAI Blog Writing Assistant on OCI",
+		link: "https://drive.google.com/file/d/1SU2XgB8iiCQftnzdxWZT6-MVdX1s0u-1/view",
 	},
 	{
 		description:
-			"A Python-based social networking system that replicates the core functionalities of Facebook and covers fundamental features such as user profiles, friend requests, posts, comments, and messaging.",
+			"AI Center of Excellence on Oracle Cloud centralizing governance using Python Guardrails, input/output validation, and IAM policy controls.",
 		imageSrc: "/portfolio/images/project-4.png",
-		imageAlt: "project-thumbnail",
-		title: "Facebook Clone",
-		link: "https://github.com/usmansafdarktk/Facebook-Clone",
+		imageAlt: "Governed AI CoE",
+		title: "Governed AI Adoption via Cloud CoE",
+		link: "https://drive.google.com/file/d/1Ku1SQ5ocGt-iJNXAPIWXaErZ6waDmAYb/view",
 	},
 	{
 		description:
-			"Developing a scalable cloud-native platform using AWS/Azure for citizen-driven traffic violation reporting, incorporating MLOps pipeline for evidence validation and real-time processing.",
+			"Open-source CLI for lightweight server and Docker observability with CPU, memory, disk, network metrics, and integrated Prometheus exporter.",
 		imageSrc: "/portfolio/images/project-5.png",
-		imageAlt: "project-thumbnail",
-		title: "Mass Reporting and Intelligent Traffic Violation Detection",
-		link: "",
+		imageAlt: "Infrahealth CLI",
+		title: "Infrahealth CLI — Monitoring Tool",
+		link: "https://github.com/usmansafdarktk/infrahealth",
+	},
+	{
+		description:
+			"Browser extension for LibrAI & MBZUAI verifying AI-generated web content and surfacing factual grounding and reasoning quality.",
+		imageSrc: "/portfolio/images/project-1.png",
+		imageAlt: "OpenFactVerification Extension",
+		title: "OpenFactVerification Extension",
+		link: "https://github.com/usmansafdarktk/OpenFactVerification",
 	},
 ];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hey, I'm Usman!</h1>
-		<p class="mb-4">
-			I'm a computer science student and researcher, currently located at Namal University Mianwali,
-			who's passionate about building intelligent systems. Whether it's through coding, teaching, or
-			community building, I'm always excited to take on new challenges.
+		<h1 class="title mb-4 text-3xl font-bold">Muhammad Usman Safder</h1>
+		<p class="text-base text-accent mb-4 font-medium">
+			Senior AI/ML Specialist | AI Research Engineer @ LibrAI & MBZUAI | AI & FinTech Consultant @ ADCB Bank
+		</p>
+		<p class="mb-4 leading-relaxed">
+			Senior AI/ML Specialist with 4+ years of experience building and deploying production-grade AI systems, 
+			multi-agent architectures (LangGraph, CrewAI), RAG pipelines, LLM evaluation & benchmarking, and cloud infrastructure 
+			(AWS EKS, OCI OKE, Kubernetes, Docker). Experienced in delivering end-to-end AI solutions across enterprise, research, and startup environments.
 		</p>
 		<SocialList />
 		<CVLink />
 	</section>
-	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Posts</h2>
-		<ul class="space-y-4">
-			{
-				allPostsByDate.map((p) => (
-					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
-						{/* @ts-ignore-next-line - issue with -> @astrojs/check@0.9.3 */}
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
-	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
-		<dl class="space-y-4">
-			{
-				cactusTech.map(({ desc, href, title }) => (
-					<div class="flex flex-col gap-2 sm:flex-row">
-						<dt>
-							<span class="flex">
-								<a class="cactus-link" href={href} rel="noreferrer" target="_blank">
-									{title}
-								</a>
-							</span>
-						</dt>
-						<dd>{desc}</dd>
+
+	<section class="mt-12">
+		<h2 class="title mb-6 text-2xl font-semibold">Experience</h2>
+		<div class="space-y-6">
+			{experiences.map((exp) => (
+				<div class="border-l-2 border-accent pl-4">
+					<div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+						<h3 class="text-lg font-bold">{exp.role} <span class="text-accent font-normal">@ {exp.company}</span></h3>
+						<span class="text-xs text-textColor/70">{exp.period}</span>
 					</div>
-				))
-			}
-		</dl>
+					<ul class="mt-2 list-disc list-inside space-y-1 text-sm">
+						{exp.bullets.map((bullet) => (
+							<li>{bullet}</li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
 	</section>
 
-	<section class="mb-8 mt-16">
-		<h2 class="title mb-12 text-xl">Projects</h2>
-		<div class="flex gap-x-8">
-			{
-				cactusProjects
-					.slice(0, 2)
-					.map(({ description, imageSrc, imageAlt, title, link }) => (
-						<ThreeDCard
-							title={title}
-							description={description}
-							imageSrc={imageSrc}
-							imageAlt={imageAlt}
-							link={link}
-						/>
-					))
-			}
-		</div>
-		<div class="flex gap-x-8">
-			{
-				cactusProjects
-					.slice(2, 4)
-					.map(({ description, imageSrc, imageAlt, title, link }) => (
-						<ThreeDCard
-							title={title}
-							description={description}
-							imageSrc={imageSrc}
-							imageAlt={imageAlt}
-							link={link}
-						/>
-					))
-			}
-		</div>
-		<div class="flex gap-x-8">
-			{
-				cactusProjects
-					.slice(4, 6)
-					.map(({ description, imageSrc, imageAlt, title, link }) => (
-						<ThreeDCard
-							title={title}
-							description={description}
-							imageSrc={imageSrc}
-							imageAlt={imageAlt}
-							link={link}
-						/>
-					))
-			}
+	<section class="mt-12">
+		<h2 class="title mb-6 text-2xl font-semibold">Publications</h2>
+		<ul class="space-y-4">
+			{publications.map((pub) => (
+				<li class="border-l-2 border-accent/60 pl-4 py-1">
+					<a href={pub.link} target="_blank" rel="noreferrer" class="font-bold text-accent hover:underline">
+						{pub.title}
+					</a>
+					<p class="text-xs text-textColor/70 mt-1">{pub.status}</p>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="mt-12">
+		<h2 class="title mb-6 text-2xl font-semibold">Technologies</h2>
+		<div class="grid gap-4 sm:grid-cols-1">
+			{techCategories.map(({ category, skills }) => (
+				<div class="rounded-lg border border-accent/20 p-4 bg-bgColor">
+					<h3 class="font-bold text-accent mb-1 text-base">{category}</h3>
+					<p class="text-sm text-textColor/90">{skills}</p>
+				</div>
+			))}
 		</div>
 	</section>
+
+	<section class="mb-8 mt-12">
+		<h2 class="title mb-8 text-2xl font-semibold">Featured Projects</h2>
+		<div class="grid gap-6 md:grid-cols-2">
+			{cactusProjects.map(({ description, imageSrc, imageAlt, title, link }) => (
+				<ThreeDCard
+					title={title}
+					description={description}
+					imageSrc={imageSrc}
+					imageAlt={imageAlt}
+					link={link}
+				/>
+			))}
+		</div>
+	</section>
+
+	{allPostsByDate.length > 0 && (
+		<section aria-label="Blog post list" class="mt-12">
+			<h2 class="title mb-4 text-xl font-semibold">Latest Posts</h2>
+			<ul class="space-y-4">
+				{allPostsByDate.map((p) => (
+					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+						{/* @ts-ignore-next-line */}
+						<PostPreview post={p} />
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
 </PageLayout>
+
