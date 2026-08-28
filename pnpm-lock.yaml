@@ -88,8 +88,8 @@ importers:
         specifier: ^1.9.3
         version: 1.9.4
       '@iconify-json/mdi':
-        specifier: ^1.2.0
-        version: 1.2.1
+        specifier: ^1.2.3
+        version: 1.2.3
       '@pagefind/default-ui':
         specifier: ^1.1.1
         version: 1.2.0
@@ -522,8 +522,8 @@ packages:
   '@expressive-code/plugin-text-markers@0.37.1':
     resolution: {integrity: sha512-AjZG/SyE41uWcpAae0w9DVtSii/YkdhOsjl6godLsI8vRGBdUdYvgoCebjb33gySa7g+9NcWxGp3oEKCBut1wA==}
 
-  '@iconify-json/mdi@1.2.1':
-    resolution: {integrity: sha512-dSkQU78gsZV6Yxnq78+LuX7jzeFC/5NAmz7O3rh558GimGFcwMVY/OtqRowIzjqJBmMmWZft7wkFV4TrwRXjlg==}
+  '@iconify-json/mdi@1.2.3':
+    resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
 
   '@iconify/tools@4.0.7':
     resolution: {integrity: sha512-zOJxKIfZn96ZRGGvIWzDRLD9vb2CsxjcLuM+QIdvwWbv6SWhm49gECzUnd4d2P0sq9sfodT7yCNobWK8nvavxQ==}
@@ -3836,7 +3836,7 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.37.1
 
-  '@iconify-json/mdi@1.2.1':
+  '@iconify-json/mdi@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
 
